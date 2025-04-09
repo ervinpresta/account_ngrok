@@ -39,7 +39,7 @@ services:
       mysql:
          condition: service_healthy
     environment:
-      PS_DOMAIN: ${PS_DOMAIN}
+      PS_DOMAIN: localhost
       ADMIN_MAIL: "admin@prestashop.com"
       ADMIN_PASSWD: "prestashop"
       DB_SERVER: mysql
@@ -71,7 +71,7 @@ services:
       mysql:
        condition: service_healthy
     environment:
-      PS_DOMAIN: ${PS_DOMAIN}
+      PS_DOMAIN: localhost
       ADMIN_MAIL: "admin@prestashop.com"
       ADMIN_PASSWD: "prestashop"
       DB_SERVER: mysql
@@ -97,9 +97,11 @@ services:
   ngrok:
     image: ngrok/ngrok:latest
     container_name: ngrok
-    command: http prestashop:80
+    command: http nginx_proxy:80
     environment:
       NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml:ro
     ports:
       - "4040:4040"
 
