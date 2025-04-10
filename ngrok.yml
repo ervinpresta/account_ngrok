@@ -7,4 +7,4 @@ tunnels:
   prestashop:
     proto: http
     addr: nginx_proxy:80
-    inspect: true
+    hostname: growing-mollusk-visually.ngrok-free.app

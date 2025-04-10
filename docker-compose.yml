@@ -31,7 +31,7 @@ services:
       - "9090:80"
 
   shop1:
-    image: prestashop/prestashop:nightly-8.1-apache
+    image: prestashop/prestashop:8.2.1
     container_name: shop1
     restart: unless-stopped
     user: root
@@ -39,7 +39,7 @@ services:
       mysql:
          condition: service_healthy
     environment:
-      PS_DOMAIN: localhost
+      PS_DOMAIN: ${PS_DOMAIN}
       ADMIN_MAIL: "admin@prestashop.com"
       ADMIN_PASSWD: "prestashop"
       DB_SERVER: mysql
@@ -71,7 +71,7 @@ services:
       mysql:
        condition: service_healthy
     environment:
-      PS_DOMAIN: localhost
+      PS_DOMAIN: ${PS_DOMAIN}
       ADMIN_MAIL: "admin@prestashop.com"
       ADMIN_PASSWD: "prestashop"
       DB_SERVER: mysql
@@ -97,7 +97,7 @@ services:
   ngrok:
     image: ngrok/ngrok:latest
     container_name: ngrok
-    command: http nginx_proxy:80
+    command: start --config /etc/ngrok.yml --all
     environment:
       NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
     volumes:

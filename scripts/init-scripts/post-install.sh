@@ -21,4 +21,3 @@ if [ "$PHYSICAL_URI" ]; then
   mysql -h $DB_SERVER -P $DB_PORT -u $DB_USER -p$DB_PASSWD $DB_NAME \
     -e "UPDATE ps_shop_url SET physical_uri='/$PHYSICAL_URI/'"
 fi
-
