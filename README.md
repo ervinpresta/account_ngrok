@@ -21,24 +21,50 @@ Crée un fichier `.env` à la racine du projet avec ce contenu :
 NGROK_AUTHTOKEN="ton_token_ngrok"
 PS_DOMAIN="ton_domaine_ngrok"
 
+---
+
 ## Lancer une boutique (MonoShop)
 
 Commande = make monostore
+      
+Cette commande :
+-Lance une seule boutique PrestaShop (shop1)
+-Commente la ligne PHYSICAL_URI dans docker-compose.yml
+-Génère automatiquement le fichier ngrok.yml pour exposer la boutique via Ngrok
+-Démarre tous les conteneurs nécessaires en arrière-plan
 
 URL d’accès à la boutique : https://ton_domaine_ngrok/
+
+---
 
 ## Lancer deux boutiques (MultiStore)
 
 Commande = make multistore
 
+Cette commande :
+-Décommente la ligne PHYSICAL_URI dans docker-compose.yml
+-Active deux boutiques PrestaShop (shop1 et shop2)
+-Génère le fichier ngrok.yml pointant vers le reverse proxy nginx_proxy
+-Utilise un reverse proxy Nginx pour rediriger /shop1 et /shop2
+-Démarre tous les conteneurs nécessaires en arrière-plan
+
 URL d’accès à la boutique : https://ton_domaine_ngrok/shop1 et https://ton_domaine_ngrok/shop2
+
+---
 
 ## Nettoyer l’environnement
 
 Avant de relancer un nouveau build, pense à nettoyer 
 
 Commande = make down 
-=> Cela supprime les containers, volumes et données pour repartir propre.
+
+Cette commande :
+-Arrête tous les conteneurs Docker (monostore et multistore)
+-Supprime les volumes associés
+-Supprime le fichier ngrok.yml généré
+-Réactive la ligne PHYSICAL_URI dans docker-compose.yml si elle avait été commentée
+
+---
 
 ## Modifier la version de PrestaShop
 
@@ -46,3 +72,4 @@ Pour changer la version, va sur https://hub.docker.com/r/prestashop/prestashop/t
 
 Puis, modifie la ligne dans docker-compose.yml : 
 image: prestashop/prestashop:**tag de la version souhaitée** (ex: 8.1-apache)
+=>Tu peux adapter cela pour shop1, shop2, ou tout autre conteneur que tu ajoutes.
