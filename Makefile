@@ -26,12 +26,16 @@ generate-ngrok-multistore:
 monostore: generate-ngrok-monostore
 	sed -i '' 's/^      PHYSICAL_URI:/#      PHYSICAL_URI:/' $(DC_FILE)
 	docker compose --profile monostore up --build -d
+	@echo "🌐 Accès à la boutique : https://${PS_DOMAIN}/"
 
 multistore: generate-ngrok-multistore
 	sed -i '' 's/^#      PHYSICAL_URI:/      PHYSICAL_URI:/' $(DC_FILE)
 	docker compose --profile multistore up --build -d
+	@echo "🌐 Accès boutique 1 : https://${PS_DOMAIN}/shop1"
+	@echo "🌐 Accès boutique 2 : https://${PS_DOMAIN}/shop2"
 
 down:
 	docker compose --profile monostore --profile multistore down -v
 	sed -i '' 's/^#      PHYSICAL_URI:/      PHYSICAL_URI:/' $(DC_FILE)
 	rm -f ngrok.yml
+	echo "✅ Environnement arrêté et ngrok.yml supprimé."
