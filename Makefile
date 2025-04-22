@@ -1,15 +1,37 @@
 DC_FILE=docker-compose.yml
+include .env
 
-monostore:
+generate-ngrok-monostore:
+	echo "version: 2" > ngrok.yml
+	echo "region: eu" >> ngrok.yml
+	echo "log_level: debug" >> ngrok.yml
+	echo "web_addr: 0.0.0.0:4040" >> ngrok.yml
+	echo "tunnels:" >> ngrok.yml
+	echo "  prestashop:" >> ngrok.yml
+	echo "    proto: http" >> ngrok.yml
+	echo "    addr: shop1:80" >> ngrok.yml
+	echo "    hostname: ${PS_DOMAIN}" >> ngrok.yml
+
+generate-ngrok-multistore:
+	echo "version: 2" > ngrok.yml
+	echo "region: eu" >> ngrok.yml
+	echo "log_level: debug" >> ngrok.yml
+	echo "web_addr: 0.0.0.0:4040" >> ngrok.yml
+	echo "tunnels:" >> ngrok.yml
+	echo "  prestashop:" >> ngrok.yml
+	echo "    proto: http" >> ngrok.yml
+	echo "    addr: nginx_proxy:80" >> ngrok.yml
+	echo "    hostname: ${PS_DOMAIN}" >> ngrok.yml
+
+monostore: generate-ngrok-monostore
 	sed -i '' 's/^      PHYSICAL_URI:/#      PHYSICAL_URI:/' $(DC_FILE)
-	cp ngrok.monostore.yml ngrok.yml
 	docker compose --profile monostore up --build -d
 
-multistore:
+multistore: generate-ngrok-multistore
 	sed -i '' 's/^#      PHYSICAL_URI:/      PHYSICAL_URI:/' $(DC_FILE)
-	cp ngrok.multistore.yml ngrok.yml
 	docker compose --profile multistore up --build -d
 
 down:
 	docker compose --profile monostore --profile multistore down -v
 	sed -i '' 's/^#      PHYSICAL_URI:/      PHYSICAL_URI:/' $(DC_FILE)
+	rm -f ngrok.yml
