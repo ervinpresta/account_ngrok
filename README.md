@@ -23,7 +23,7 @@ PS_DOMAIN="ton_domaine_ngrok"
 
 ## Lancer une boutique (MonoShop)
 
-Commande = make monoshop
+Commande = make monostore
 
 URL d’accès à la boutique : https://ton_domaine_ngrok/
 
