@@ -95,6 +95,6 @@ Pour changer la version, va sur https://hub.docker.com/r/prestashop/prestashop-f
 
 Puis, modifie la ligne dans docker-compose.yml : 
 image: prestashop/prestashop-flashlight:**tag de la version souhaitée** (ex:nightly-nginx)
-=>Tu NE PEUX PASadapter cela pour shop1, shop2 !!! Concerne uniquement Flashlight
+=>Tu NE PEUX PAS adapter cela pour shop1, shop2 !!! Concerne uniquement Flashlight
 
 ---
