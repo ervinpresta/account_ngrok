@@ -52,6 +52,19 @@ URL d’accès à la boutique : https://ton_domaine_ngrok/shop1 et https://ton_d
 
 ---
 
+## Lancer une boutique (flashlight)
+
+Commande = make flashlight
+      
+Cette commande :
+-Lance une boutique PrestaShop Flashlight
+-Génère automatiquement le fichier ngrok.yml pour exposer la boutique via Ngrok
+-Démarre tous les conteneurs nécessaires en arrière-plan
+
+URL d’accès à la boutique : https://ton_domaine_ngrok/
+
+---
+
 ## Nettoyer l’environnement
 
 Avant de relancer un nouveau build, pense à nettoyer 
@@ -59,7 +72,7 @@ Avant de relancer un nouveau build, pense à nettoyer
 Commande = make down 
 
 Cette commande :
--Arrête tous les conteneurs Docker (monostore et multistore)
+-Arrête tous les conteneurs Docker (monostore, multistore, flashlight)
 -Supprime les volumes associés
 -Supprime le fichier ngrok.yml généré
 -Réactive la ligne PHYSICAL_URI dans docker-compose.yml si elle avait été commentée
@@ -73,3 +86,15 @@ Pour changer la version, va sur https://hub.docker.com/r/prestashop/prestashop/t
 Puis, modifie la ligne dans docker-compose.yml : 
 image: prestashop/prestashop:**tag de la version souhaitée** (ex: 8.1-apache)
 =>Tu peux adapter cela pour shop1, shop2, ou tout autre conteneur que tu ajoutes.
+
+---
+
+## Modifier la version de PrestaShop Flashlight
+
+Pour changer la version, va sur https://hub.docker.com/r/prestashop/prestashop-flashlight/tags
+
+Puis, modifie la ligne dans docker-compose.yml : 
+image: prestashop/prestashop-flashlight:**tag de la version souhaitée** (ex:nightly-nginx)
+=>Tu NE PEUX PASadapter cela pour shop1, shop2 !!! Concerne uniquement Flashlight
+
+---

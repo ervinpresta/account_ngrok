@@ -17,7 +17,7 @@ services:
       MYSQL_HOST: "mysql"
     ports:
       - "4306:3306"
-    profiles: ["monostore", "multistore"]
+    profiles: ["monostore", "multistore", "flashlight"]
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -30,10 +30,10 @@ services:
       MYSQL_ROOT_PASSWORD: "prestashop"
     ports:
       - "9090:80"
-    profiles: ["monostore", "multistore"]
+    profiles: ["monostore", "multistore", "flashlight"]
 
   shop1:
-    image: prestashop/prestashop:8.2.1
+    image: prestashop/prestashop:nightly-apache
     container_name: shop1
     restart: unless-stopped
     user: root
@@ -55,7 +55,7 @@ services:
       PS_INSTALL_DB: 1
       PS_INSTALL_AUTO: 1
       PS_FOLDER_ADMIN: admin-dev
-      PS_DEV_MODE: 1
+      PS_DEV_MODE: 0
       PS_ENABLE_SSL: 1
     ports:
       - "9000:80"
@@ -97,6 +97,17 @@ services:
       - ./scripts/init-scripts:/tmp/init-scripts
     profiles: ["multistore"]
 
+  prestashop:
+    restart: unless-stopped
+    image: ${IMAGE_PREFIX:-}prestashop/prestashop-flashlight:nightly-nginx
+    environment:
+      ADMIN_MAIL: "admin@prestashop.com"
+      ADMIN_PASSWD: "prestashop"
+      PS_DOMAIN: ${PS_DOMAIN}
+      SSL_REDIRECT: true
+    ports:
+      - "9002:80"
+    profiles: ["flashlight"]
 
   ngrok:
     image: ngrok/ngrok:latest
@@ -108,7 +119,7 @@ services:
       - ./ngrok.yml:/etc/ngrok.yml:ro
     ports:
       - "4040:4040"
-    profiles: ["monostore", "multistore"]
+    profiles: ["monostore", "multistore", "flashlight"]
 
 
   nginx_proxy:
