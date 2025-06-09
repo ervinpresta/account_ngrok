@@ -37,7 +37,7 @@ URL d’accès à la boutique : https://ton_domaine_ngrok/
 
 ---
 
-## Lancer deux boutiques (MultiStore - Multi-Instance)
+## Lancer deux boutiques (MultiStore - Multi-Instance) NE FONTIONNE PAS AVEC FLASHLIGHT !! IMAGE PRESTASHOP/PRESTASHOP UNIQUEMENT
 
 Commande = make multistore
 

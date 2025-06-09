@@ -1,13 +1,8 @@
-name: account_ngrok
+name: shop_mytun
 services:
   mysql:
     image: mariadb:lts
     container_name: mysql
-    healthcheck:
-      test: ["CMD", "healthcheck.sh", "--connect"]
-      interval: 10s
-      timeout: 10s
-      retries: 5
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: "prestashop"
@@ -33,13 +28,12 @@ services:
     profiles: ["monostore", "multistore", "flashlight"]
 
   shop1:
-    image: prestashop/prestashop:nightly-apache
+    image: prestashop/prestashop:8.2-apache
     container_name: shop1
     restart: unless-stopped
     user: root
     depends_on:
-      mysql:
-         condition: service_healthy
+      - mysql
     environment:
       PS_DOMAIN: ${PS_DOMAIN}
       ADMIN_MAIL: "admin@prestashop.com"
@@ -71,8 +65,7 @@ services:
     restart: unless-stopped
     user: root
     depends_on:
-      mysql:
-       condition: service_healthy
+      - mysql
     environment:
       PS_DOMAIN: ${PS_DOMAIN}
       ADMIN_MAIL: "admin@prestashop.com"
@@ -97,7 +90,7 @@ services:
       - ./scripts/init-scripts:/tmp/init-scripts
     profiles: ["multistore"]
 
-  prestashop:
+  flashlight:
     restart: unless-stopped
     image: prestashop/prestashop-flashlight:nightly-nginx
     environment:

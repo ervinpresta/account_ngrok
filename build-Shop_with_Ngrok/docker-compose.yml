@@ -1,4 +1,4 @@
-name: account_ngrok
+name: shop_ngrok
 services:
   mysql:
     image: mariadb:lts
@@ -97,7 +97,7 @@ services:
       - ./scripts/init-scripts:/tmp/init-scripts
     profiles: ["multistore"]
 
-  prestashop:
+  prestashop-flashlight:
     restart: unless-stopped
     image: prestashop/prestashop-flashlight:nightly-nginx
     environment:
