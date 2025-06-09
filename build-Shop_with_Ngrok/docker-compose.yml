@@ -99,7 +99,7 @@ services:
 
   prestashop:
     restart: unless-stopped
-    image: ${IMAGE_PREFIX:-}prestashop/prestashop-flashlight:nightly-nginx
+    image: prestashop/prestashop-flashlight:nightly-nginx
     environment:
       ADMIN_MAIL: "admin@prestashop.com"
       ADMIN_PASSWD: "prestashop"

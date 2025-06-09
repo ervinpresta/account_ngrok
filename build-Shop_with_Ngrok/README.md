@@ -37,13 +37,14 @@ URL d’accès à la boutique : https://ton_domaine_ngrok/
 
 ---
 
-## Lancer deux boutiques (MultiStore)
+## Lancer deux boutiques (MultiStore - Multi-Instance)
 
 Commande = make multistore
 
 Cette commande :
 -Décommente la ligne PHYSICAL_URI dans docker-compose.yml
 -Active deux boutiques PrestaShop (shop1 et shop2)
+-Active deux boutiques en multi-instance, donc deux BDD sont créées
 -Génère le fichier ngrok.yml pointant vers le reverse proxy nginx_proxy
 -Utilise un reverse proxy Nginx pour rediriger /shop1 et /shop2
 -Démarre tous les conteneurs nécessaires en arrière-plan
