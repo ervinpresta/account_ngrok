@@ -16,7 +16,7 @@ Ce projet permet de lancer une ou deux boutiques PrestaShop accessibles publique
 
 ---
 
-##  AVANT TOUTE ACTION ALLEZ DANS LE BON DOSSIER, DANS LE TERMINAL TAPER "CD build-Shop_with_Mytun"
+##  AVANT TOUTE ACTION ALLEZ DANS LE BON DOSSIER: => DANS LE TERMINAL TAPER LA COMMANDE "CD build-Shop_with_Mytun"
 
 ---
 
@@ -24,13 +24,14 @@ Ce projet permet de lancer une ou deux boutiques PrestaShop accessibles publique
 
 Crée un fichier `.env` à la racine du dossier build-Shop_with_Mytun avec ce contenu (exemple dans le .env.dist) :
 
+```
 .env = 
-ACCOUNT_TAG="your account tag"
-TUNNEL_SECRET="your tunel secret"
-TUNNEL_ID="your tunel id"
-PS_DOMAIN="prestashop.firstname-name-mytun.prestashop.name"
-DOMAIN="firstname-name-mytun.prestashop.name"
-
+   - ACCOUNT_TAG="your account tag"
+   - TUNNEL_SECRET="your tunel secret"
+   - TUNNEL_ID="your tunel id"
+   - PS_DOMAIN="prestashop.firstname-name-mytun.prestashop.name"
+   - DOMAIN="firstname-name-mytun.prestashop.name"
+```
 ---
 
 ## Lancer une boutique (MonoShop)

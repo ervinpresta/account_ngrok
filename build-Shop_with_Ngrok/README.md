@@ -13,17 +13,19 @@ Ce projet permet de lancer une ou deux boutiques PrestaShop accessibles publique
 
 ---
 
-##  AVANT TOUTE ACTION ALLEZ DANS LE BON DOSSIER, DANS LE TERMINAL TAPER "CD build-Shop_with_Ngrok"
+##  AVANT TOUTE ACTION ALLEZ DANS LE BON DOSSIER: => DANS LE TERMINAL TAPER LA COMMANDE "CD build-Shop_with_Ngrok"
 
 ---
 
 ## 🛠️ Configuration
 
 Crée un fichier `.env` à la racine du dossier build-Shop_with_Ngrok avec ce contenu (exemple dans le .env.dist) :
-.env = 
-NGROK_AUTHTOKEN="ton_token_ngrok"
-PS_DOMAIN="ton_domaine_ngrok"
-
+.env =
+```
+   -  NGROK_AUTHTOKEN="ton_token_ngrok"
+   -  PS_DOMAIN="ton_domaine_ngrok"
+   
+```
 ---
 
 ## Lancer une boutique (MonoShop)
