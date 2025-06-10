@@ -32,6 +32,19 @@ services:
       - "3307:3306"
     networks:
       - prestashop_network
+      
+  phpmyadmin:
+      image: phpmyadmin:latest
+      ports:
+        - 3007:80
+      environment:
+        - PMA_HOST=mysql
+        - PMA_PORT=3306
+        - PMA_USER=prestashop
+        - PMA_PASSWORD=prestashop
+        - MYSQL_ROOT_PASSWORD=prestashop
+      networks:
+        - prestashop_network
 
   ngrok:
     image: ngrok/ngrok:latest
@@ -46,18 +59,6 @@ services:
     restart: always
     networks:
       - prestashop_network
-  phpmyadmin:
-      image: phpmyadmin:latest
-      ports:
-        - 3007:80
-      environment:
-        - PMA_HOST=mysql
-        - PMA_PORT=3306
-        - PMA_USER=prestashop
-        - PMA_PASSWORD=prestashop
-        - MYSQL_ROOT_PASSWORD=prestashop
-      networks:
-        - prestashop_network
 
 networks:
   prestashop_network:
