@@ -98,7 +98,10 @@ Pour changer la version, va sur https://hub.docker.com/r/prestashop/prestashop/t
 
 Puis, modifie la ligne dans docker-compose.yml :
 
-```image: prestashop/prestashop:**tag de la version souhaitée**``` (ex: 8.1-apache)
+```
+image: prestashop/prestashop:**tag de la version souhaitée**
+(ex: image: prestashop/prestashop:8.2-apache)
+``` 
 
 =>Tu peux adapter cela pour shop1, shop2, ou tout autre conteneur que tu ajoutes.
 
@@ -110,8 +113,10 @@ Pour changer la version, va sur https://hub.docker.com/r/prestashop/prestashop-f
 
 Puis, modifie la ligne dans docker-compose.yml :
 
-```image: prestashop/prestashop-flashlight:**tag de la version souhaitée**``` (ex:nightly-nginx)
-
-=>ATTENTION LE MULTISTORE NE FONCTIONNE PAS AVEC FLASLIGHT, MODIFIER UNIQUEMENT LE CONTAINER FLASHLIG
+```
+image: prestashop/prestashop-flashlight:**tag de la version souhaitée**
+(ex: image: prestashop/prestashop-flashlight:nightly-nginx)
+``` 
+=>ATTENTION LE MULTISTORE NE FONCTIONNE PAS AVEC FLASLIGHT, MODIFIER UNIQUEMENT LE CONTAINER FLASHLIGHT
 
 ---
