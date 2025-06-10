@@ -29,13 +29,15 @@ Crée un fichier `.env` à la racine du dossier build-Shop_with_Ngrok avec ce co
 
 ## Lancer une boutique (MonoShop)
 
-Commande = make monostore
+Dans le terminal lancer la Commande = 
+
+```make monostore```
       
 Cette commande :
--Lance une seule boutique PrestaShop (shop1)
--Commente la ligne PHYSICAL_URI dans docker-compose.yml
--Génère automatiquement le fichier ngrok.yml pour exposer la boutique via Ngrok
--Démarre tous les conteneurs nécessaires en arrière-plan
+   - Lance une seule boutique PrestaShop (shop1)
+   - Commente la ligne PHYSICAL_URI dans docker-compose.yml
+   - Génère automatiquement le fichier ngrok.yml pour exposer la boutique via Ngrok
+   - Démarre tous les conteneurs nécessaires en arrière-plan
 
 URL d’accès à la boutique : https://ton_domaine_ngrok/
 
@@ -43,15 +45,17 @@ URL d’accès à la boutique : https://ton_domaine_ngrok/
 
 ## Lancer deux boutiques (MultiStore - Multi-Instance) NE FONTIONNE PAS AVEC FLASHLIGHT !! IMAGE PRESTASHOP/PRESTASHOP UNIQUEMENT
 
-Commande = make multistore
+Dans le terminal lancer la Commande = 
+
+```make multistore```
 
 Cette commande :
--Décommente la ligne PHYSICAL_URI dans docker-compose.yml
--Active deux boutiques PrestaShop (shop1 et shop2)
--Active deux boutiques en multi-instance, donc deux BDD sont créées
--Génère le fichier ngrok.yml pointant vers le reverse proxy nginx_proxy
--Utilise un reverse proxy Nginx pour rediriger /shop1 et /shop2
--Démarre tous les conteneurs nécessaires en arrière-plan
+   - Décommente la ligne PHYSICAL_URI dans docker-compose.yml
+   - Active deux boutiques PrestaShop (shop1 et shop2)
+   - Active deux boutiques en multi-instance, donc deux BDD sont créées
+   - Génère le fichier ngrok.yml pointant vers le reverse proxy nginx_proxy
+   - Utilise un reverse proxy Nginx pour rediriger /shop1 et /shop2
+   - Démarre tous les conteneurs nécessaires en arrière-plan
 
 URL d’accès à la boutique : https://ton_domaine_ngrok/shop1 et https://ton_domaine_ngrok/shop2
 
@@ -59,12 +63,14 @@ URL d’accès à la boutique : https://ton_domaine_ngrok/shop1 et https://ton_d
 
 ## Lancer une boutique (flashlight)
 
-Commande = make flashlight
+Dans le terminal lancer la Commande = 
+
+```make flashlight```
       
 Cette commande :
--Lance une boutique PrestaShop Flashlight
--Génère automatiquement le fichier ngrok.yml pour exposer la boutique via Ngrok
--Démarre tous les conteneurs nécessaires en arrière-plan
+   - Lance une boutique PrestaShop Flashlight
+   - Génère automatiquement le fichier ngrok.yml pour exposer la boutique via Ngrok
+   - Démarre tous les conteneurs nécessaires en arrière-plan
 
 URL d’accès à la boutique : https://ton_domaine_ngrok/
 
@@ -74,13 +80,15 @@ URL d’accès à la boutique : https://ton_domaine_ngrok/
 
 Avant de relancer un nouveau build, pense à nettoyer 
 
-Commande = make down 
+Dans le terminal lancer la Commande = 
+
+```make down```
 
 Cette commande :
--Arrête tous les conteneurs Docker (monostore, multistore, flashlight)
--Supprime les volumes associés
--Supprime le fichier ngrok.yml généré
--Réactive la ligne PHYSICAL_URI dans docker-compose.yml si elle avait été commentée
+   - Arrête tous les conteneurs Docker (monostore, multistore, flashlight)
+   - Supprime les volumes associés
+   - Supprime le fichier ngrok.yml généré
+   - Réactive la ligne PHYSICAL_URI dans docker-compose.yml si elle avait été commentée
 
 ---
 
@@ -88,8 +96,10 @@ Cette commande :
 
 Pour changer la version, va sur https://hub.docker.com/r/prestashop/prestashop/tags
 
-Puis, modifie la ligne dans docker-compose.yml : 
-image: prestashop/prestashop:**tag de la version souhaitée** (ex: 8.1-apache)
+Puis, modifie la ligne dans docker-compose.yml :
+
+```image: prestashop/prestashop:**tag de la version souhaitée**``` (ex: 8.1-apache)
+
 =>Tu peux adapter cela pour shop1, shop2, ou tout autre conteneur que tu ajoutes.
 
 ---
@@ -98,8 +108,10 @@ image: prestashop/prestashop:**tag de la version souhaitée** (ex: 8.1-apache)
 
 Pour changer la version, va sur https://hub.docker.com/r/prestashop/prestashop-flashlight/tags
 
-Puis, modifie la ligne dans docker-compose.yml : 
-image: prestashop/prestashop-flashlight:**tag de la version souhaitée** (ex:nightly-nginx)
-=>Tu NE PEUX PAS adapter cela pour shop1, shop2 !!! Concerne uniquement Flashlight
+Puis, modifie la ligne dans docker-compose.yml :
+
+```image: prestashop/prestashop-flashlight:**tag de la version souhaitée**``` (ex:nightly-nginx)
+
+=>ATTENTION LE MULTISTORE NE FONCTIONNE PAS AVEC FLASLIGHT, MODIFIER UNIQUEMENT LE CONTAINER FLASHLIG
 
 ---
