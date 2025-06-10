@@ -40,10 +40,10 @@ Commande =
 ```make monostore```
       
 Cette commande :
--Lance une seule boutique PrestaShop (shop1)
--Commente la ligne PHYSICAL_URI dans docker-compose.yml
--Génère automatiquement les fichiers mytun-config.yml & mytun-credentials.yml pour exposer la boutique via MyTun
--Démarre tous les conteneurs nécessaires en arrière-plan
+   - Lance une seule boutique PrestaShop (shop1)
+   - Commente la ligne PHYSICAL_URI dans docker-compose.yml
+   - Génère automatiquement les fichiers mytun-config.yml & mytun-credentials.yml pour exposer la boutique via MyTun
+   - Démarre tous les conteneurs nécessaires en arrière-plan
 
 URL d’accès à la boutique : https://ton_domaine_ngrok/
 
@@ -56,12 +56,12 @@ Commande =
 ```make multistore```
 
 Cette commande :
--Décommente la ligne PHYSICAL_URI dans docker-compose.yml
--Active deux boutiques PrestaShop (shop1 et shop2)
--Active deux boutiques en multi-instance, donc deux BDD sont créées
--Génère les fichiers mytun-config.yml & mytun-credentials.yml pointant vers le reverse proxy nginx_proxy
--Utilise un reverse proxy Nginx pour rediriger /shop1 et /shop2
--Démarre tous les conteneurs nécessaires en arrière-plan
+   - Décommente la ligne PHYSICAL_URI dans docker-compose.yml
+   - Active deux boutiques PrestaShop (shop1 et shop2)
+   - Active deux boutiques en multi-instance, donc deux BDD sont créées
+   - Génère les fichiers mytun-config.yml & mytun-credentials.yml pointant vers le reverse proxy nginx_proxy
+   - Utilise un reverse proxy Nginx pour rediriger /shop1 et /shop2
+   - Démarre tous les conteneurs nécessaires en arrière-plan
 
 URL d’accès à la boutique : https://ton_domaine_ngrok/shop1 et https://ton_domaine_ngrok/shop2
 
@@ -74,9 +74,9 @@ Commande =
 ```make flashlight```
       
 Cette commande :
--Lance une boutique PrestaShop Flashlight
--Génère automatiquement les fichiers mytun-config.yml & mytun-credentials.yml pour exposer la boutique via MyTun
--Démarre tous les conteneurs nécessaires en arrière-plan
+   - Lance une boutique PrestaShop Flashlight
+   - Génère automatiquement les fichiers mytun-config.yml & mytun-credentials.yml pour exposer la boutique via MyTun
+   - Démarre tous les conteneurs nécessaires en arrière-plan
 
 URL d’accès à la boutique : https://ton_domaine_ngrok/
 
@@ -91,9 +91,9 @@ Commande =
 ```make down```
 
 Cette commande :
--Arrête tous les conteneurs Docker (monostore, multistore, flashlight)
--Supprime les volumes associés
--Réactive la ligne PHYSICAL_URI dans docker-compose.yml si elle avait été commentée
+   - Arrête tous les conteneurs Docker (monostore, multistore, flashlight)
+   - Supprime les volumes associés
+   - Réactive la ligne PHYSICAL_URI dans docker-compose.yml si elle avait été commentée
 
 ---
 
