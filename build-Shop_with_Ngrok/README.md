@@ -100,6 +100,7 @@ Puis, modifie la ligne dans docker-compose.yml :
 
 ```
 image: prestashop/prestashop:**tag de la version souhaitée**
+
 (ex: image: prestashop/prestashop:8.2-apache)
 ``` 
 
@@ -115,6 +116,7 @@ Puis, modifie la ligne dans docker-compose.yml :
 
 ```
 image: prestashop/prestashop-flashlight:**tag de la version souhaitée**
+
 (ex: image: prestashop/prestashop-flashlight:nightly-nginx)
 ``` 
 =>ATTENTION LE MULTISTORE NE FONCTIONNE PAS AVEC FLASLIGHT, MODIFIER UNIQUEMENT LE CONTAINER FLASHLIGHT

@@ -105,6 +105,7 @@ Puis, modifie la ligne dans docker-compose.yml :
 
 ```
 image: prestashop/prestashop:**tag de la version souhaitée**
+
 (ex: image: prestashop/prestashop:8.2-apache)
 ``` 
 
@@ -120,6 +121,7 @@ Puis, modifie la ligne dans docker-compose.yml :
 
 ```
 image: prestashop/prestashop-flashlight:**tag de la version souhaitée**
+
 (ex: image: prestashop/prestashop-flashlight:nightly-nginx)
 ``` 
 
