@@ -35,7 +35,9 @@ Crée un fichier `.env` à la racine du dossier build-Shop_with_Mytun avec ce co
 
 ## Lancer une boutique (MonoShop)
 
-Commande = make monostore
+Commande = 
+
+```make monostore```
       
 Cette commande :
 -Lance une seule boutique PrestaShop (shop1)
@@ -49,7 +51,9 @@ URL d’accès à la boutique : https://ton_domaine_ngrok/
 
 ## Lancer deux boutiques (MultiStore - Multi-Instance) NE FONTIONNE PAS AVEC FLASHLIGHT !! IMAGE PRESTASHOP/PRESTASHOP UNIQUEMENT
 
-Commande = make multistore
+Commande = 
+
+```make multistore```
 
 Cette commande :
 -Décommente la ligne PHYSICAL_URI dans docker-compose.yml
@@ -65,7 +69,9 @@ URL d’accès à la boutique : https://ton_domaine_ngrok/shop1 et https://ton_d
 
 ## Lancer une boutique (flashlight)
 
-Commande = make flashlight
+Commande = 
+
+```make flashlight```
       
 Cette commande :
 -Lance une boutique PrestaShop Flashlight
@@ -80,7 +86,9 @@ URL d’accès à la boutique : https://ton_domaine_ngrok/
 
 Avant de relancer un nouveau build, pense à nettoyer 
 
-Commande = make down 
+Commande = 
+
+```make down```
 
 Cette commande :
 -Arrête tous les conteneurs Docker (monostore, multistore, flashlight)
