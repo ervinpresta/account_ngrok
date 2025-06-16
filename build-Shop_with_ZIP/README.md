@@ -93,3 +93,29 @@ Puis supprimer le ficher d'install avec la commande suivante :
 ![alt text](/build-Shop_with_ZIP/screenshots_for_readme/image5.png)
 
 ---
+
+Si vous rencontrez une erreur 500, cela signifie qu'il faut modifier le fichier .env, à cause du SLL
+
+---
+
+![alt text](/build-Shop_with_ZIP/screenshots_for_readme/image6.png)
+
+---
+
+Dans docker desktop allez dans le container de la shop puis dans files
+
+Une fois dans files aller dans : 
+   - var
+   - www
+   - html
+   - .env
+
+Ensuite éditer le ficher, a la ligne 6 il faut ajouter 127.0.0.1,REMOTE_ADDR
+
+---
+
+![alt text](/build-Shop_with_ZIP/screenshots_for_readme/image7.png)
+
+---
+
+Retourner sur l'url de la shop : https://ton_domaine_ngrok/ et rafraichir la page si nécessaire.
