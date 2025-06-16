@@ -78,7 +78,7 @@ URL d’accès à la boutique : https://ton_domaine_ngrok/
 
 ## Nettoyer l’environnement
 
-Avant de relancer un nouveau build, pense à nettoyer 
+Avant de relancer un nouveau build, pense à nettoyer les containers
 
 Dans le terminal lancer la Commande = 
 

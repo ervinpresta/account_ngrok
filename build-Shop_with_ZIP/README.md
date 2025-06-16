@@ -119,3 +119,19 @@ Ensuite éditer le ficher, a la ligne 6 il faut ajouter 127.0.0.1,REMOTE_ADDR
 ---
 
 Retourner sur l'url de la shop : https://ton_domaine_ngrok/ et rafraichir la page si nécessaire.
+
+---
+
+## Nettoyer l’environnement
+
+Avant de relancer un nouveau build, pense à nettoyer les containers
+
+Dans le terminal lancer la Commande = 
+
+```make down```
+
+Cette commande :
+   - Arrête tous les conteneurs Docker
+   - Supprime les volumes associés
+   
+---
