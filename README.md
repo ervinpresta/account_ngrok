@@ -6,7 +6,7 @@ Ce projet permet de créer des boutiques PrestaShop de différentes façons.
 
 ## ⚙️ Prérequis
 
-Vous devez faire un git clone du projet en local 
+Vous devez faire un ```git clone``` du projet en local 
 
 ---
 
