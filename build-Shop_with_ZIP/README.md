@@ -13,6 +13,21 @@ Ce projet permet de créer une boutiques PrestaShop à partir d'un zip, accessib
 
 ---
 
+##  AVANT TOUTE ACTION ALLEZ DANS LE BON DOSSIER: => DANS LE TERMINAL TAPER LA COMMANDE "CD build-Shop_with_ZIP"
+
+---
+
+## 🛠️ Configuration
+
+Crée un fichier `.env` à la racine du dossier build-Shop_with_Ngrok avec ce contenu (exemple dans le .env.dist) :
+```
+   -  NGROK_AUTHTOKEN="ton_token_ngrok"
+   -  PS_DOMAIN="ton_domaine_ngrok"
+
+```
+
+---
+
 Dézipper le dossier de la version souhaitez contenant le prestashop.zip
 
 ---
@@ -26,21 +41,6 @@ Gilsser le prestashop.zip à la racine du dossier build-Shop_with_ZIP
 ---
 
 ![alt text](/build-Shop_with_ZIP/screenshots_for_readme/image1.png)
-
----
-
-##  AVANT TOUTE ACTION ALLEZ DANS LE BON DOSSIER: => DANS LE TERMINAL TAPER LA COMMANDE "CD build-Shop_with_ZIP"
-
----
-
-## 🛠️ Configuration
-
-Crée un fichier `.env` à la racine du dossier build-Shop_with_Ngrok avec ce contenu (exemple dans le .env.dist) :
-```
-   -  NGROK_AUTHTOKEN="ton_token_ngrok"
-   -  PS_DOMAIN="ton_domaine_ngrok"
-
-```
 
 ---
 
